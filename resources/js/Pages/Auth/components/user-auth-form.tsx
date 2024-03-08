@@ -1,9 +1,8 @@
-"use client"
 import React, { FormEventHandler, useEffect } from 'react'
 import { cn } from '@/lib/utils'
-import { Label } from '@/shadcn/ui/label'
-import { Input } from '@/shadcn/ui/input'
-import { Button, buttonVariants } from '@/shadcn/ui/button'
+import { Label } from '@/Components/shadcn/ui/label'
+import { Input } from '@/Components/shadcn/ui/input'
+import { Button, buttonVariants } from '@/Components/shadcn/ui/button'
 import { ChromeIcon, GithubIcon, LoaderIcon, LogInIcon, UserRoundPlusIcon } from 'lucide-react'
 import InputError from '@/Components/InputError'
 import { Link, useForm } from '@inertiajs/react'
@@ -105,14 +104,18 @@ const submit: FormEventHandler = (e) => {
         </div>
       </div>
       <div className='flex row justify-center gap-2 items-center'>
-        <Button className='w-full' variant="destructive" type="button" disabled={isLoading}>
+      <Link
+        className={cn(buttonVariants({variant: 'destructive'}), 'w-full')}
+        disabled={isLoading}
+        href={route('socialite.redirect', 'google')}
+      >
             {isLoading ? (
             <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />
             ) : (
             <ChromeIcon className="mr-2 h-4 w-4" />
             )}{" "}
             Google
-        </Button>
+        </Link>
         <Link
         className={cn(buttonVariants({variant: 'outline'}))}
         disabled={isLoading}
