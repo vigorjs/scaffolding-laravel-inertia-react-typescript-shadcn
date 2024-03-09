@@ -1,10 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 
-import { InertiaLinkProps, Link } from '@inertiajs/react';
+import { InertiaLinkProps, Link, router } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import { ChevronDownCircleIcon, GlobeIcon, LayoutDashboardIcon, LogOutIcon, MessageCircleQuestionIcon, Settings2Icon } from 'lucide-react';
-import { Separator } from '@radix-ui/react-dropdown-menu';
 
 export function Aside() {
     return (
@@ -27,12 +26,10 @@ export function Aside() {
                     <ChevronDownCircleIcon />
                     <span>Resources</span>
                 </AsideLabel>
-                <Separator/>
-                <li  className='py-2'>
-                    <AsideLink href={route('logout')}>
-                        <span>Log Out</span>
-                    </AsideLink>
-                </li>
+                <li className='py-2'/>
+                <AsideLink onClick={() => router.post(route('logout'))} href='/'>
+                    <span>Log Out</span>
+                </AsideLink>
             </ul>
         </nav>
     );
