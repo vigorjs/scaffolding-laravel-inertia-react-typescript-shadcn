@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## How to Install
+1. composer install
+2. npm i
+3. cp .env.example .env
+4. php artisan key:generate
+5. php artisan optimize:clear
+//set up your .env before running migration 
+6. php artisan migrate --seed
+
+//if u got error related to spatie-permission, run this command to publish the package vendor
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
